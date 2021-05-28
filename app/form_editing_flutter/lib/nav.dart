@@ -10,12 +10,10 @@ class Nav extends StatelessWidget implements PreferredSize {
                 fit: BoxFit.cover,
               ),
             ),
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Image.asset('assets/images/logo.png',
-                      width: 55.0, height: 55.0)
-                ])));
+            child: Center(
+                child: Image.asset(
+              'assets/images/logo.png',
+            ))));
   }
 
   @override
