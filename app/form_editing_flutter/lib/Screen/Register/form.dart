@@ -14,8 +14,8 @@ class _EmailForm extends State<EmailForm> {
 
     return Container(
         width: size.width * 0.75,
-        key: _EmailKey,
         child: Form(
+          key: _EmailKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -47,7 +47,7 @@ class _EmailForm extends State<EmailForm> {
                   child: TextFormField(
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Enter Username';
+                          return 'Enter Email';
                         }
                         return null;
                       },
@@ -55,7 +55,7 @@ class _EmailForm extends State<EmailForm> {
                         color: Colors.red,
                       ),
                       decoration: InputDecoration(
-                          hintText: "Username",
+                          hintText: "Email",
                           prefixIcon: Icon(Icons.email_outlined),
                           fillColor: Colors.white,
                           filled: true))),
