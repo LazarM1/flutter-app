@@ -3,11 +3,10 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:form_editing_flutter/Screen/Register/register.dart';
 import 'package:form_editing_flutter/Screen/SignIn/signin.dart';
+import 'package:form_editing_flutter/style.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
-
+  MyHomePage({Key? key}) : super(key: key);
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -15,16 +14,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    final style = OutlinedButton.styleFrom(
-      primary: Colors.white,
-      minimumSize: Size(88, 36),
-      padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-      textStyle: TextStyle(
-          color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
-      side: BorderSide(color: Colors.white, width: 3),
-      shadowColor: Colors.black,
-      elevation: 25,
-    );
     return Scaffold(
       body: Container(
         constraints: BoxConstraints.expand(),
@@ -42,12 +31,14 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(
                   width: 250,
                   child: OutlinedButton(
-                      style: style,
+                      style: outline_button,
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => LogInScreen()));
+                        Future.delayed(Duration.zero, () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LogInScreen()));
+                        });
                       },
                       child: Text("LOGIN"))),
               SizedBox(
@@ -56,12 +47,14 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(
                   width: 250,
                   child: OutlinedButton(
-                      style: style,
+                      style: outline_button,
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Register()));
+                        Future.delayed(Duration.zero, () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Register()));
+                        });
                       },
                       child: Text("REGISTER"))),
             ],

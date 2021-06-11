@@ -1,9 +1,12 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:form_editing_flutter/Screen/ForgottenPassword/forgotten.dart';
 import 'package:form_editing_flutter/Screen/Home/home.dart';
+import 'package:form_editing_flutter/Screen/Register/register.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../../storage.dart';
+import 'package:form_editing_flutter/style.dart';
 
 class LogInForm extends StatefulWidget {
   @override
@@ -19,80 +22,82 @@ class _LogInForm extends State<LogInForm> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-        width: size.width * 0.75,
+        width: size.width * 0.85,
         child: Form(
           key: _LogInKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'Sign in',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
+                'SIGN IN',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 45,
+                    color: Color.fromRGBO(51, 45, 45, 1)),
               ),
-              SizedBox(
-                height: 25,
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    RichText(
+                        text: TextSpan(
+                            style: TextStyle(fontSize: 18),
+                            children: const <TextSpan>[
+                          TextSpan(
+                              text: "Don't have an account?",
+                              style: TextStyle(color: Colors.black))
+                        ])),
+                    TextButton(
+                        onPressed: () {
+                          Future.delayed(Duration.zero, () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Register()));
+                          });
+                        },
+                        child: RichText(
+                            text: TextSpan(
+                                style: TextStyle(fontSize: 18),
+                                children: const <TextSpan>[
+                              TextSpan(
+                                  text: 'Register now',
+                                  style: TextStyle(color: Colors.blueAccent))
+                            ])))
+                  ]),
+              Padding(
+                  padding: EdgeInsets.only(top: 25),
+                  child: InputField(
+                      hintText: 'Email',
+                      icon: Icons.email_outlined,
+                      enterData: 'Enter Email',
+                      fill: Colors.white,
+                      text: Colors.black,
+                      obscure: false,
+                      controller: email)),
+              Padding(
+                padding: EdgeInsets.only(top: 15),
+                child: InputField(
+                    hintText: 'Password',
+                    icon: Icons.lock_outline,
+                    enterData: 'Enter Password',
+                    fill: Colors.white,
+                    text: Colors.black,
+                    obscure: true,
+                    controller: password),
               ),
-              Material(
-                  shadowColor: Colors.black,
-                  elevation: 5,
-                  child: TextFormField(
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Enter Email';
-                        }
-                        return null;
-                      },
-                      controller: email,
-                      decoration: InputDecoration(
-                          hintText: "Email",
-                          prefixIcon: Icon(Icons.account_circle_outlined),
-                          fillColor: Colors.white,
-                          filled: true))),
-              SizedBox(
-                height: 25,
-              ),
-              Material(
-                  elevation: 5,
-                  shadowColor: Colors.black,
-                  child: TextFormField(
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Enter Password';
-                        }
-                        return null;
-                      },
-                      controller: password,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.lock_outline),
-                          hintText: "Password",
-                          fillColor: Colors.white,
-                          filled: true))),
               TextButton(
-                onPressed: null,
-                child: Text(
-                  'Forgot Password?',
-                  style: TextStyle(
-                      decoration: TextDecoration.underline,
-                      fontSize: 15,
-                      color: Colors.blueAccent),
-                ),
-                style: TextButton.styleFrom(primary: Colors.black),
+                onPressed: () {
+                  Future.delayed(Duration.zero, () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Forgotten()));
+                  });
+                },
+                child: Text('Forgot Password?', style: forgotten_password),
               ),
               SizedBox(
-                  width: size.width * 0.75,
+                  width: size.width * 0.85,
                   child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.blue,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-                      textStyle: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                      shadowColor: Colors.black,
-                      elevation: 5,
-                    ),
+                    style: elevated_button,
                     onPressed: () async {
                       if (_LogInKey.currentState!.validate()) {
                         int code =
@@ -100,15 +105,19 @@ class _LogInForm extends State<LogInForm> {
                         email.text = "";
                         password.text = "";
                         if (code == 200) {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => Home()));
+                          Future.delayed(Duration.zero, () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Home()));
+                          });
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                               content: Text('Invalid email/password')));
                         }
                       }
                     },
-                    child: Text('LogIn'),
+                    child: Text('LOGIN'),
                   )),
             ],
           ),

@@ -18,7 +18,7 @@ class Home extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 45,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black54))),
+                      color: Color.fromRGBO(51, 45, 45, 1)))),
         ),
         drawer: Theme(
           data: Theme.of(context).copyWith(
@@ -41,8 +41,10 @@ class Home extends StatelessWidget {
                     style: style,
                   ),
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Profile()));
+                    Future.delayed(Duration.zero, () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Profile()));
+                    });
                   },
                 ),
                 ListTile(
@@ -52,14 +54,14 @@ class Home extends StatelessWidget {
                     size: 35,
                   ),
                   title: Text('LogOut', style: style),
-                  onTap: () {
+                  onTap: () async {
                     secureStorage.delete('token');
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => MyHomePage(
-                                  title: 'MyHomePage',
-                                )));
+                    Future.delayed(Duration.zero, () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MyHomePage()));
+                    });
                   },
                 ),
               ],

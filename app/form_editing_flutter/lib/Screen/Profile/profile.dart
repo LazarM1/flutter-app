@@ -9,6 +9,8 @@ import 'dart:convert';
 import '../../storage.dart';
 import 'code.dart';
 
+bool loaded = false;
+
 class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -16,7 +18,7 @@ class Profile extends StatelessWidget {
         appBar: Nav(),
         body: Center(
             child: Container(
-          width: size.width * 0.75,
+          width: size.width * 0.95,
           child: Column(children: <Widget>[
             Padding(
               padding: EdgeInsets.all(10.0),
@@ -25,7 +27,7 @@ class Profile extends StatelessWidget {
               Align(
                 alignment: Alignment.topCenter,
                 child: Icon(Icons.account_circle_outlined,
-                    color: Colors.blueAccent, size: 150),
+                    color: Colors.blueGrey, size: 150),
               ),
               Align(
                   child: Padding(
@@ -39,10 +41,12 @@ class Profile extends StatelessWidget {
                             color: Colors.white,
                             iconSize: 30,
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Edit()));
+                              Future.delayed(Duration.zero, () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Edit()));
+                              });
                             }),
                       ))),
             ]),
@@ -66,12 +70,58 @@ class Profile extends StatelessWidget {
                                     itemCount: fields.data!.length,
                                     itemBuilder: (context, index) {
                                       final profile = fields.data;
-                                      return Container(
-                                          child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Text(profile![index].name +
-                                            profile[index].value),
-                                      ));
+                                      return Card(
+                                          elevation: 8.0,
+                                          margin: new EdgeInsets.symmetric(
+                                              horizontal: 10.0, vertical: 5.0),
+                                          child: Container(
+                                              decoration: BoxDecoration(
+                                                  color: Colors.white12),
+                                              child: ListTile(
+                                                contentPadding:
+                                                    EdgeInsets.symmetric(
+                                                  horizontal: 20.0,
+                                                ),
+                                                leading: Container(
+                                                  padding: EdgeInsets.only(
+                                                      right: 12.0),
+                                                  decoration: new BoxDecoration(
+                                                      border: new Border(
+                                                          right: new BorderSide(
+                                                              width: 1.0,
+                                                              color: Color
+                                                                  .fromRGBO(
+                                                                      51,
+                                                                      45,
+                                                                      45,
+                                                                      45)))),
+                                                  child: Icon(
+                                                      Icons.circle_rounded,
+                                                      color: Color.fromRGBO(
+                                                          51, 45, 45, 45)),
+                                                ),
+                                                title: Text(
+                                                  profile![index].value,
+                                                  style: TextStyle(
+                                                      color: Colors.blueAccent,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 19),
+                                                ),
+                                                subtitle: Row(
+                                                  children: <Widget>[
+                                                    Text(profile![index].name,
+                                                        style: TextStyle(
+                                                            color:
+                                                                Color.fromRGBO(
+                                                                    51,
+                                                                    45,
+                                                                    45,
+                                                                    45),
+                                                            fontSize: 16))
+                                                  ],
+                                                ),
+                                              )));
                                     },
                                   )
                                 : const CircularProgressIndicator();

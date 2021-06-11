@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:form_editing_flutter/Screen/SignIn/form.dart';
+import 'package:form_editing_flutter/Screen/SignIn/signin.dart';
+import 'package:form_editing_flutter/style.dart';
 
 class EmailForm extends StatefulWidget {
   @override
   _EmailForm createState() => _EmailForm();
 }
+
+TextEditingController email_register = new TextEditingController();
 
 class _EmailForm extends State<EmailForm> {
   final _EmailKey = GlobalKey<FormState>(); //unique id for Form
@@ -13,77 +18,74 @@ class _EmailForm extends State<EmailForm> {
     Size size = MediaQuery.of(context).size;
 
     return Container(
-        width: size.width * 0.75,
+        width: size.width * 0.85,
         child: Form(
           key: _EmailKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SizedBox(
-                height: 25,
-              ),
-              Text('Become a member',
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
-              SizedBox(
-                height: 10,
-              ),
-              RichText(
-                  text: TextSpan(
-                      style: TextStyle(fontSize: 15),
-                      children: const <TextSpan>[
-                    TextSpan(
-                        text: 'Already have an account? ',
-                        style: TextStyle(color: Colors.black)),
-                    TextSpan(
-                        text: ' Sign in',
-                        style: TextStyle(color: Colors.blueAccent))
-                  ])),
-              SizedBox(
-                height: 25,
-              ),
-              Material(
-                  shadowColor: Colors.black,
-                  elevation: 5,
-                  child: TextFormField(
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Enter Email';
-                        }
-                        return null;
-                      },
+              Padding(
+                  padding: EdgeInsets.only(top: 25),
+                  child: Text('BECOME A MEMBER',
                       style: TextStyle(
-                        color: Colors.red,
-                      ),
-                      decoration: InputDecoration(
-                          hintText: "Email",
-                          prefixIcon: Icon(Icons.email_outlined),
-                          fillColor: Colors.white,
-                          filled: true))),
-              SizedBox(
-                height: 25,
+                          fontSize: 35,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromRGBO(51, 45, 45, 1)))),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  RichText(
+                      text: TextSpan(
+                          style: TextStyle(fontSize: 18),
+                          children: const <TextSpan>[
+                        TextSpan(
+                            text: 'Already have an account? ',
+                            style: TextStyle(color: Colors.black))
+                      ])),
+                  TextButton(
+                      onPressed: () {
+                        Future.delayed(Duration.zero, () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LogInScreen()));
+                        });
+                      },
+                      child: RichText(
+                          text: TextSpan(
+                              style: TextStyle(fontSize: 18),
+                              children: const <TextSpan>[
+                            TextSpan(
+                                text: ' Sign in',
+                                style: TextStyle(color: Colors.blueAccent))
+                          ]))),
+                ],
               ),
-              Container(
-                  width: size.width * 0.75,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.blue,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-                      textStyle: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                      shadowColor: Colors.black,
-                      elevation: 5,
-                    ),
-                    onPressed: () {
-                      if (_EmailKey.currentState!.validate()) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text('Continue...')));
-                      }
-                    },
-                    child: Text('Continue'),
-                  )),
+              Padding(
+                  padding: EdgeInsets.only(top: 25),
+                  child: InputField(
+                      hintText: 'Email',
+                      icon: Icons.email_outlined,
+                      enterData: 'Enter Email',
+                      fill: Colors.white,
+                      text: Colors.black,
+                      obscure: false,
+                      controller: email_register)),
+              Padding(
+                  padding: EdgeInsets.only(top: 25),
+                  child: Container(
+                      width: size.width * 0.85,
+                      child: ElevatedButton(
+                        style: elevated_button,
+                        onPressed: () {
+                          if (_EmailKey.currentState!.validate()) {
+                            email_register.text = "";
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text('Continue...')));
+                          }
+                        },
+                        child: Text('CONTINUE'),
+                      ))),
             ],
           ),
         ));
