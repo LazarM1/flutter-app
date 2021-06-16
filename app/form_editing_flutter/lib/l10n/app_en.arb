@@ -1,0 +1,100 @@
+{
+    "language": "English",
+    "@language":{
+      "description": "The current Language"
+    },
+
+    "signIn": "SignIn",
+    "@SignIn": {
+      "description": "SignIn"
+    },
+
+    "register": "Register",
+    "@Register": {
+      "description": "Register"
+    },
+
+
+    "signInH2": "Don't have an account?",
+    "@SignInH2": {
+      "description": "SignInH2 SignInPage"
+    },
+
+    "registerLink": "Register now",
+    "@RegisterLink": {
+      "description": "RegisterLink SignInPage"
+    },
+
+    "email": "Email",
+    "@Email": {
+      "description": "Email"
+    },
+
+ "emailHint": "Enter Email",
+    "@emailHint": {
+      "description": "emailHint"
+    },
+
+    "password": "Password",
+    "@Password": {
+      "description": "Password"
+    },
+
+    "passwordHint": "Enter Password",
+    "@passwordHint": {
+      "description": "passwordHint"
+    },
+
+  "forgotPasswordLink": "Forgot Password?",
+    "@ForgotPasswordLink": {
+      "description": "ForgotPasswordLink SignInPage"
+    },
+    
+    "login": "LogIn",
+    "@login": {
+      "description": "login SignInPage"
+    },
+
+    "invalid": "Invalid email/password",
+    "@invalid": {
+      "description": "invalid SignInPage"
+    },
+
+    "registerH1":"BECOME A MEMBER",
+    "registerH2":"Already have an account?",
+    "signInLink":"SignIn",
+    "continueButton":"continue",
+    "forgotPasswordH2":"Don’t worry, happens to the best of us.",
+    "pleaseEnter":"Please enter your e-mail",
+    "forgotPasswordButton":"EMAIL ME A RECOVERY LINK",
+    "welcome":"Welcome",
+    "profile":"Profile",
+    "logout":"LogOut",
+    "firstname":"First Name",
+    "lastname": "Last Name",
+    "address1": "Address",
+    "city": "City",
+    "zip":"Zip",
+    "emailaddress": "Email",
+    "state":"State",
+    "required":"Required",
+    "invalidInput":"Invalid Input"
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+    
+}

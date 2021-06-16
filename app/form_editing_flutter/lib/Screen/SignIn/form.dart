@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../../storage.dart';
 import 'package:form_editing_flutter/style.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LogInForm extends StatefulWidget {
   @override
@@ -29,7 +30,7 @@ class _LogInForm extends State<LogInForm> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'SIGN IN',
+                AppLocalizations.of(context)!.signIn,
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 45,
@@ -38,38 +39,41 @@ class _LogInForm extends State<LogInForm> {
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    RichText(
-                        text: TextSpan(
-                            style: TextStyle(fontSize: 18),
-                            children: const <TextSpan>[
-                          TextSpan(
-                              text: "Don't have an account?",
-                              style: TextStyle(color: Colors.black))
-                        ])),
-                    TextButton(
-                        onPressed: () {
-                          Future.delayed(Duration.zero, () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Register()));
-                          });
-                        },
-                        child: RichText(
-                            text: TextSpan(
-                                style: TextStyle(fontSize: 18),
-                                children: const <TextSpan>[
-                              TextSpan(
-                                  text: 'Register now',
-                                  style: TextStyle(color: Colors.blueAccent))
-                            ])))
+                    Padding(
+                      padding: EdgeInsets.only(top: 10),
+                      child: RichText(
+                          text: TextSpan(
+                              style: TextStyle(fontSize: 18),
+                              children: <TextSpan>[
+                            TextSpan(
+                                text: AppLocalizations.of(context)!.signInH2,
+                                style: TextStyle(color: Colors.black))
+                          ])),
+                    )
                   ]),
+              TextButton(
+                  onPressed: () {
+                    Future.delayed(Duration.zero, () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Register()));
+                    });
+                  },
+                  child: RichText(
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                          style: TextStyle(fontSize: 18),
+                          children: <TextSpan>[
+                            TextSpan(
+                                text:
+                                    AppLocalizations.of(context)!.registerLink,
+                                style: TextStyle(color: Colors.blueAccent))
+                          ]))),
               Padding(
                   padding: EdgeInsets.only(top: 25),
                   child: InputField(
-                      hintText: 'Email',
+                      hintText: AppLocalizations.of(context)!.email,
                       icon: Icons.email_outlined,
-                      enterData: 'Enter Email',
+                      enterData: AppLocalizations.of(context)!.emailHint,
                       fill: Colors.white,
                       text: Colors.black,
                       obscure: false,
@@ -77,9 +81,9 @@ class _LogInForm extends State<LogInForm> {
               Padding(
                 padding: EdgeInsets.only(top: 15),
                 child: InputField(
-                    hintText: 'Password',
+                    hintText: AppLocalizations.of(context)!.password,
                     icon: Icons.lock_outline,
-                    enterData: 'Enter Password',
+                    enterData: AppLocalizations.of(context)!.passwordHint,
                     fill: Colors.white,
                     text: Colors.black,
                     obscure: true,
@@ -92,7 +96,8 @@ class _LogInForm extends State<LogInForm> {
                         MaterialPageRoute(builder: (context) => Forgotten()));
                   });
                 },
-                child: Text('Forgot Password?', style: forgotten_password),
+                child: Text(AppLocalizations.of(context)!.forgotPasswordLink,
+                    style: forgotten_password),
               ),
               SizedBox(
                   width: size.width * 0.85,
@@ -113,11 +118,13 @@ class _LogInForm extends State<LogInForm> {
                           });
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              content: Text('Invalid email/password')));
+                              content:
+                                  Text(AppLocalizations.of(context)!.invalid)));
                         }
                       }
                     },
-                    child: Text('LOGIN'),
+                    child:
+                        Text(AppLocalizations.of(context)!.login.toUpperCase()),
                   )),
             ],
           ),

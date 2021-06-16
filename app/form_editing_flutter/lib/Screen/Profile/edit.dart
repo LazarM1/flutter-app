@@ -1,14 +1,12 @@
 import 'dart:developer';
-import 'dart:ffi';
 import 'package:flutter/material.dart';
-import 'package:form_editing_flutter/Screen/Profile/profile.dart';
-import 'package:form_editing_flutter/Screen/Register/form.dart';
 import 'package:form_editing_flutter/nav.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../../storage.dart';
 import 'code.dart';
 import 'package:form_editing_flutter/style.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 List<TextEditingController> Create() {
   List<TextEditingController> text = [];
@@ -35,7 +33,7 @@ class _Edit extends State<Edit> {
         appBar: Nav(),
         body: Center(
             child: Container(
-                width: size.width * 0.85,
+                width: size.width * 0.95,
                 child: Column(children: <Widget>[
                   Padding(
                     padding: EdgeInsets.all(10.0),

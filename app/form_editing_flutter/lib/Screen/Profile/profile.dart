@@ -1,13 +1,8 @@
-import 'dart:developer';
-import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:form_editing_flutter/Screen/Profile/edit.dart';
-import 'package:form_editing_flutter/Screen/Register/form.dart';
 import 'package:form_editing_flutter/nav.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-import '../../storage.dart';
 import 'code.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 bool loaded = false;
 
@@ -96,7 +91,7 @@ class Profile extends StatelessWidget {
                                                                       45,
                                                                       45)))),
                                                   child: Icon(
-                                                      Icons.circle_rounded,
+                                                      Icons.arrow_forward_ios,
                                                       color: Color.fromRGBO(
                                                           51, 45, 45, 45)),
                                                 ),
@@ -110,7 +105,13 @@ class Profile extends StatelessWidget {
                                                 ),
                                                 subtitle: Row(
                                                   children: <Widget>[
-                                                    Text(profile![index].name,
+                                                    Text(
+                                                        Name(
+                                                            AppLocalizations.of(
+                                                                    context)!
+                                                                .localeName,
+                                                            profile[index]
+                                                                .name),
                                                         style: TextStyle(
                                                             color:
                                                                 Color.fromRGBO(

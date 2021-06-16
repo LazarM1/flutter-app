@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:form_editing_flutter/Screen/SignIn/form.dart';
-import 'package:form_editing_flutter/Screen/SignIn/signin.dart';
 import 'package:form_editing_flutter/style.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ForgottenForm extends StatefulWidget {
   @override
@@ -26,7 +25,10 @@ class _ForgottenForm extends State<ForgottenForm> {
             children: <Widget>[
               Padding(
                   padding: EdgeInsets.only(top: 25),
-                  child: Text('FORGOT PASSWORD?',
+                  child: Text(
+                      AppLocalizations.of(context)!
+                          .forgotPasswordLink
+                          .toUpperCase(),
                       style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
@@ -39,9 +41,10 @@ class _ForgottenForm extends State<ForgottenForm> {
                       RichText(
                           text: TextSpan(
                               style: TextStyle(fontSize: 18),
-                              children: const <TextSpan>[
+                              children: <TextSpan>[
                             TextSpan(
-                                text: 'Don’t worry, happens to the best of us.',
+                                text: AppLocalizations.of(context)!
+                                    .forgotPasswordH2,
                                 style: TextStyle(color: Colors.black))
                           ])),
                     ],
@@ -49,9 +52,9 @@ class _ForgottenForm extends State<ForgottenForm> {
               Padding(
                   padding: EdgeInsets.only(top: 25),
                   child: InputField(
-                      hintText: 'Please enter your e-mail',
+                      hintText: AppLocalizations.of(context)!.pleaseEnter,
                       icon: Icons.email_outlined,
-                      enterData: 'Enter Email',
+                      enterData: AppLocalizations.of(context)!.emailHint,
                       fill: Colors.white,
                       text: Colors.black,
                       obscure: false,
@@ -65,11 +68,14 @@ class _ForgottenForm extends State<ForgottenForm> {
                         onPressed: () {
                           if (_ForgottenKey.currentState!.validate()) {
                             forgotten_pass.text = "";
-                            ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text('Continue...')));
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                content: Text(AppLocalizations.of(context)!
+                                    .continueButton)));
                           }
                         },
-                        child: Text('EMAIL ME A RECOVERY LINK'),
+                        child: Text(AppLocalizations.of(context)!
+                            .forgotPasswordButton
+                            .toUpperCase()),
                       ))),
             ],
           ),

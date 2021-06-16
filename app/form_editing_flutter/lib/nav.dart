@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'l10n/widget.dart';
 
 class Nav extends StatelessWidget implements PreferredSize {
   Widget build(BuildContext context) {
     return AppBar(
+        actions: [
+          LanguagePickerWidget(),
+          const SizedBox(width: 12),
+        ],
         flexibleSpace: Container(
             decoration: BoxDecoration(
               image: DecorationImage(

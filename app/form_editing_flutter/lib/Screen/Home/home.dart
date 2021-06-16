@@ -4,6 +4,7 @@ import 'package:form_editing_flutter/Screen/Profile/profile.dart';
 import 'package:form_editing_flutter/Screen/Welcome/welcome.dart';
 import 'package:form_editing_flutter/nav.dart';
 import '../../storage.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -14,7 +15,7 @@ class Home extends StatelessWidget {
         appBar: Nav(),
         body: Container(
           child: Center(
-              child: Text("WELCOME",
+              child: Text(AppLocalizations.of(context)!.welcome.toUpperCase(),
                   style: TextStyle(
                       fontSize: 45,
                       fontWeight: FontWeight.bold,
@@ -37,7 +38,7 @@ class Home extends StatelessWidget {
                     size: 35,
                   ),
                   title: Text(
-                    'Profile',
+                    AppLocalizations.of(context)!.profile,
                     style: style,
                   ),
                   onTap: () {
@@ -53,7 +54,8 @@ class Home extends StatelessWidget {
                     color: Colors.white,
                     size: 35,
                   ),
-                  title: Text('LogOut', style: style),
+                  title:
+                      Text(AppLocalizations.of(context)!.logout, style: style),
                   onTap: () async {
                     secureStorage.delete('token');
                     Future.delayed(Duration.zero, () {

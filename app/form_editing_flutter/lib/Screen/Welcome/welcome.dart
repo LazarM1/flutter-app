@@ -1,9 +1,9 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:form_editing_flutter/Screen/Register/register.dart';
 import 'package:form_editing_flutter/Screen/SignIn/signin.dart';
+import 'package:form_editing_flutter/nav.dart';
 import 'package:form_editing_flutter/style.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key}) : super(key: key);
@@ -15,6 +15,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: Nav(),
       body: Container(
         constraints: BoxConstraints.expand(),
         decoration: BoxDecoration(
@@ -40,7 +41,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                   builder: (context) => LogInScreen()));
                         });
                       },
-                      child: Text("LOGIN"))),
+                      child: Text(
+                          AppLocalizations.of(context)!.signIn.toUpperCase()))),
               SizedBox(
                 height: 25,
               ),
@@ -56,7 +58,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                   builder: (context) => Register()));
                         });
                       },
-                      child: Text("REGISTER"))),
+                      child: Text(AppLocalizations.of(context)!
+                          .register
+                          .toUpperCase()))),
             ],
           ),
         ),

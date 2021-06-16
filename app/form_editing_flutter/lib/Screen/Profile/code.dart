@@ -1,9 +1,3 @@
-import 'dart:developer';
-import 'dart:ffi';
-
-import 'package:flutter/material.dart';
-import 'package:form_editing_flutter/Screen/Register/form.dart';
-import 'package:form_editing_flutter/nav.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../../storage.dart';
@@ -14,6 +8,10 @@ class Field {
   late final String name;
   late final String value;
   late Definition definition;
+  String get def {
+    return name;
+  }
+
   Field(this.name, this.value);
 }
 
@@ -108,4 +106,27 @@ class Definition {
     data['regex'] = this.regex;
     return data;
   }
+}
+
+// ignore: non_constant_identifier_names
+String Name(String lan, String name) {
+  if (lan == "sl") {
+    switch (name) {
+      case "FirstName":
+        return "Ime";
+      case "LastName":
+        return "Priimek";
+      case "Address1":
+        return "Naslov";
+      case "City":
+        return "Mesto";
+      case "Zip":
+        return "Poštna številka";
+      case "State":
+        return "Država";
+      case "EmailAddress":
+        return "E-naslov";
+    }
+  }
+  return name;
 }

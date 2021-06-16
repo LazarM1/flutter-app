@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:form_editing_flutter/Screen/SignIn/form.dart';
 import 'package:form_editing_flutter/Screen/SignIn/signin.dart';
 import 'package:form_editing_flutter/style.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class EmailForm extends StatefulWidget {
   @override
@@ -26,7 +26,8 @@ class _EmailForm extends State<EmailForm> {
             children: <Widget>[
               Padding(
                   padding: EdgeInsets.only(top: 25),
-                  child: Text('BECOME A MEMBER',
+                  child: Text(
+                      AppLocalizations.of(context)!.registerH1.toUpperCase(),
                       style: TextStyle(
                           fontSize: 35,
                           fontWeight: FontWeight.bold,
@@ -37,9 +38,9 @@ class _EmailForm extends State<EmailForm> {
                   RichText(
                       text: TextSpan(
                           style: TextStyle(fontSize: 18),
-                          children: const <TextSpan>[
+                          children: <TextSpan>[
                         TextSpan(
-                            text: 'Already have an account? ',
+                            text: AppLocalizations.of(context)!.registerH2,
                             style: TextStyle(color: Colors.black))
                       ])),
                   TextButton(
@@ -54,9 +55,9 @@ class _EmailForm extends State<EmailForm> {
                       child: RichText(
                           text: TextSpan(
                               style: TextStyle(fontSize: 18),
-                              children: const <TextSpan>[
+                              children: <TextSpan>[
                             TextSpan(
-                                text: ' Sign in',
+                                text: AppLocalizations.of(context)!.signInLink,
                                 style: TextStyle(color: Colors.blueAccent))
                           ]))),
                 ],
@@ -64,9 +65,9 @@ class _EmailForm extends State<EmailForm> {
               Padding(
                   padding: EdgeInsets.only(top: 25),
                   child: InputField(
-                      hintText: 'Email',
+                      hintText: AppLocalizations.of(context)!.email,
                       icon: Icons.email_outlined,
-                      enterData: 'Enter Email',
+                      enterData: AppLocalizations.of(context)!.emailHint,
                       fill: Colors.white,
                       text: Colors.black,
                       obscure: false,
@@ -80,11 +81,14 @@ class _EmailForm extends State<EmailForm> {
                         onPressed: () {
                           if (_EmailKey.currentState!.validate()) {
                             email_register.text = "";
-                            ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text('Continue...')));
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                content: Text(AppLocalizations.of(context)!
+                                    .continueButton)));
                           }
                         },
-                        child: Text('CONTINUE'),
+                        child: Text(AppLocalizations.of(context)!
+                            .continueButton
+                            .toUpperCase()),
                       ))),
             ],
           ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:form_editing_flutter/Screen/Profile/edit.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'Screen/Profile/code.dart';
 
 final outline_button = OutlinedButton.styleFrom(
@@ -56,7 +58,7 @@ class InputField extends StatelessWidget {
             },
             obscureText: this.obscure,
             controller: this.controller,
-            style: TextStyle(color: this.text, fontSize: 20),
+            style: TextStyle(color: this.text, fontSize: 18),
             decoration: InputDecoration(
                 hintText: hintText,
                 prefixIcon: Icon(this.icon),
@@ -86,15 +88,15 @@ class DynamicInputField extends StatelessWidget {
         child: TextFormField(
             readOnly: !fieldsList[index].definition.isEditable,
             controller: controller,
-            style: TextStyle(fontSize: 20),
+            style: TextStyle(fontSize: 18),
             validator: (value) {
               RegExp regex = new RegExp(fieldsList[index].definition.regex);
               if (value!.isEmpty == true &&
                   fieldsList[index].definition.isRequired == true) {
-                return 'Required';
+                return AppLocalizations.of(context)!.required;
               } else {
                 if (!regex.hasMatch(value.toString())) {
-                  return 'Enter valid ' + fieldsList[index].name;
+                  return AppLocalizations.of(context)!.invalidInput;
                 } else
                   return null;
               }
@@ -102,8 +104,11 @@ class DynamicInputField extends StatelessWidget {
             decoration: InputDecoration(
                 fillColor: fill,
                 labelText: fieldsList[index].definition.isRequired == true
-                    ? (fieldsList[index].name + "*")
-                    : (fieldsList[index].name),
+                    ? (Name(AppLocalizations.of(context)!.localeName,
+                            fieldsList[index].name) +
+                        "*")
+                    : (Name(AppLocalizations.of(context)!.localeName,
+                        fieldsList[index].name)),
                 filled: true)));
   }
 }
