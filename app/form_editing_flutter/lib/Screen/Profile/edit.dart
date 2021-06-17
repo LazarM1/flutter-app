@@ -8,6 +8,7 @@ import 'code.dart';
 import 'package:form_editing_flutter/style.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+//kreiranje kontrolera
 List<TextEditingController> Create() {
   List<TextEditingController> text = [];
   for (int i = 0; i < fieldsList.length; i++) {
@@ -82,6 +83,7 @@ class _Edit extends State<Edit> {
                                 key: _updateKey,
                                 child: Column(children: <Widget>[
                                   Flexible(
+                                      //na osnvu liste polja pravimo formu
                                       child: ListView.builder(
                                           itemCount: fieldsList.length,
                                           itemBuilder: (context, index) {

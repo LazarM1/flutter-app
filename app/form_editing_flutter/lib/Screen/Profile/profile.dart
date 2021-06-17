@@ -51,7 +51,9 @@ class Profile extends StatelessWidget {
                 child: Container(
                     child: Align(
                   alignment: Alignment.center,
+                  //futre builder- za dinmicno pravljene liste
                   child: FutureBuilder(
+                      //pozivamo funkciju za stavaranje liste polja
                       future: getFields(),
                       builder: (context, AsyncSnapshot<List<Field>> fields) {
                         switch (fields.connectionState) {
@@ -96,6 +98,7 @@ class Profile extends StatelessWidget {
                                                           .primaryColor),
                                                 ),
                                                 title: Text(
+                                                  //vrednost polja
                                                   profile![index].value,
                                                   style: TextStyle(
                                                       color: Colors.blueAccent,
@@ -107,6 +110,7 @@ class Profile extends StatelessWidget {
                                                   children: <Widget>[
                                                     Text(
                                                         Name(
+                                                            //ime polja
                                                             AppLocalizations.of(
                                                                     context)!
                                                                 .localeName,

@@ -126,6 +126,7 @@ class _LogInForm extends State<LogInForm> {
   }
 }
 
+//http reuqst prijava
 Future<int> _getHttpAnswer(var e, var p) async {
   final prefix = '0_';
   final email = prefix + e;
