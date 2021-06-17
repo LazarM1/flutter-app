@@ -28,7 +28,13 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('assets/images/logo.png'),
+              Image.asset(
+                'assets/images/logo.png',
+                height: 200,
+              ),
+              SizedBox(
+                height: 25,
+              ),
               SizedBox(
                   width: 250,
                   child: OutlinedButton(

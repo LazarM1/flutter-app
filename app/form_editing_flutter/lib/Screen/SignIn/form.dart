@@ -30,7 +30,7 @@ class _LogInForm extends State<LogInForm> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                AppLocalizations.of(context)!.signIn,
+                AppLocalizations.of(context)!.signIn.toUpperCase(),
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 45),
               ),
               Row(

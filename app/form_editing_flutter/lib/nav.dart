@@ -3,6 +3,7 @@ import 'l10n/widget.dart';
 
 class Nav extends StatelessWidget implements PreferredSize {
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return AppBar(
         actions: [
           LanguagePickerWidget(),

@@ -52,7 +52,8 @@ class CustomTheme {
       scaffoldBackgroundColor: Colors.black,
       fontFamily: 'Montserrat',
       textTheme: ThemeData.dark().textTheme,
-      inputDecorationTheme: InputDecorationTheme(fillColor: Colors.black87),
+      inputDecorationTheme: InputDecorationTheme(
+          fillColor: Colors.black87, hintStyle: TextStyle(color: Colors.white)),
     );
   }
 }
