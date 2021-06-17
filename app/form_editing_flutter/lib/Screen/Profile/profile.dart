@@ -70,7 +70,11 @@ class Profile extends StatelessWidget {
                                           margin: new EdgeInsets.symmetric(
                                               horizontal: 10.0, vertical: 5.0),
                                           child: Container(
-                                              decoration: BoxDecoration(),
+                                              decoration: BoxDecoration(
+                                                color: Theme.of(context)
+                                                    .inputDecorationTheme
+                                                    .fillColor,
+                                              ),
                                               child: ListTile(
                                                 contentPadding:
                                                     EdgeInsets.symmetric(
@@ -83,16 +87,13 @@ class Profile extends StatelessWidget {
                                                       border: new Border(
                                                           right: new BorderSide(
                                                               width: 1.0,
-                                                              color: Color
-                                                                  .fromRGBO(
-                                                                      51,
-                                                                      45,
-                                                                      45,
-                                                                      45)))),
+                                                              color: Theme.of(
+                                                                      context)
+                                                                  .primaryColor))),
                                                   child: Icon(
                                                       Icons.arrow_forward_ios,
-                                                      color: Color.fromRGBO(
-                                                          51, 45, 45, 45)),
+                                                      color: Theme.of(context)
+                                                          .primaryColor),
                                                 ),
                                                 title: Text(
                                                   profile![index].value,
@@ -112,12 +113,9 @@ class Profile extends StatelessWidget {
                                                             profile[index]
                                                                 .name),
                                                         style: TextStyle(
-                                                            color:
-                                                                Color.fromRGBO(
-                                                                    51,
-                                                                    45,
-                                                                    45,
-                                                                    45),
+                                                            color: Theme.of(
+                                                                    context)
+                                                                .primaryColor,
                                                             fontSize: 16))
                                                   ],
                                                 ),

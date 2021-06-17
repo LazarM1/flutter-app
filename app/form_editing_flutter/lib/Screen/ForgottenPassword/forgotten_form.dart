@@ -32,7 +32,7 @@ class _ForgottenForm extends State<ForgottenForm> {
                       style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromRGBO(51, 45, 45, 1)))),
+                          color: Theme.of(context).primaryColor))),
               Padding(
                   padding: EdgeInsetsDirectional.all(10),
                   child: Row(
@@ -45,7 +45,8 @@ class _ForgottenForm extends State<ForgottenForm> {
                             TextSpan(
                                 text: AppLocalizations.of(context)!
                                     .forgotPasswordH2,
-                                style: TextStyle(color: Colors.black))
+                                style: TextStyle(
+                                    color: Theme.of(context).primaryColor))
                           ])),
                     ],
                   )),

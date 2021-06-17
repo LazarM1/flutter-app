@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
           ],
-          theme: CustomTheme.lightTheme,
+          theme: CustomTheme.darkTheme,
           home: MyHomePage(),
         );
       });
