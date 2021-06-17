@@ -29,9 +29,9 @@ class _EmailForm extends State<EmailForm> {
                   child: Text(
                       AppLocalizations.of(context)!.registerH1.toUpperCase(),
                       style: TextStyle(
-                          fontSize: 35,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromRGBO(51, 45, 45, 1)))),
+                        fontSize: 35,
+                        fontWeight: FontWeight.bold,
+                      ))),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -41,7 +41,8 @@ class _EmailForm extends State<EmailForm> {
                           children: <TextSpan>[
                         TextSpan(
                             text: AppLocalizations.of(context)!.registerH2,
-                            style: TextStyle(color: Colors.black))
+                            style: (TextStyle(
+                                color: Theme.of(context).primaryColor)))
                       ])),
                   TextButton(
                       onPressed: () {
@@ -68,8 +69,6 @@ class _EmailForm extends State<EmailForm> {
                       hintText: AppLocalizations.of(context)!.email,
                       icon: Icons.email_outlined,
                       enterData: AppLocalizations.of(context)!.emailHint,
-                      fill: Colors.white,
-                      text: Colors.black,
                       obscure: false,
                       controller: email_register)),
               Padding(

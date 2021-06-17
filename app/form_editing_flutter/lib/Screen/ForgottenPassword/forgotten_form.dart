@@ -55,8 +55,6 @@ class _ForgottenForm extends State<ForgottenForm> {
                       hintText: AppLocalizations.of(context)!.pleaseEnter,
                       icon: Icons.email_outlined,
                       enterData: AppLocalizations.of(context)!.emailHint,
-                      fill: Colors.white,
-                      text: Colors.black,
                       obscure: false,
                       controller: forgotten_pass)),
               Padding(

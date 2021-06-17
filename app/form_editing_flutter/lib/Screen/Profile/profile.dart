@@ -70,8 +70,7 @@ class Profile extends StatelessWidget {
                                           margin: new EdgeInsets.symmetric(
                                               horizontal: 10.0, vertical: 5.0),
                                           child: Container(
-                                              decoration: BoxDecoration(
-                                                  color: Colors.white12),
+                                              decoration: BoxDecoration(),
                                               child: ListTile(
                                                 contentPadding:
                                                     EdgeInsets.symmetric(

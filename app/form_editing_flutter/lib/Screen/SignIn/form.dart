@@ -31,10 +31,7 @@ class _LogInForm extends State<LogInForm> {
             children: <Widget>[
               Text(
                 AppLocalizations.of(context)!.signIn,
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 45,
-                    color: Color.fromRGBO(51, 45, 45, 1)),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 45),
               ),
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -47,7 +44,8 @@ class _LogInForm extends State<LogInForm> {
                               children: <TextSpan>[
                             TextSpan(
                                 text: AppLocalizations.of(context)!.signInH2,
-                                style: TextStyle(color: Colors.black))
+                                style: TextStyle(
+                                    color: Theme.of(context).primaryColor))
                           ])),
                     )
                   ]),
@@ -74,8 +72,6 @@ class _LogInForm extends State<LogInForm> {
                       hintText: AppLocalizations.of(context)!.email,
                       icon: Icons.email_outlined,
                       enterData: AppLocalizations.of(context)!.emailHint,
-                      fill: Colors.white,
-                      text: Colors.black,
                       obscure: false,
                       controller: email)),
               Padding(
@@ -84,8 +80,6 @@ class _LogInForm extends State<LogInForm> {
                     hintText: AppLocalizations.of(context)!.password,
                     icon: Icons.lock_outline,
                     enterData: AppLocalizations.of(context)!.passwordHint,
-                    fill: Colors.white,
-                    text: Colors.black,
                     obscure: true,
                     controller: password),
               ),

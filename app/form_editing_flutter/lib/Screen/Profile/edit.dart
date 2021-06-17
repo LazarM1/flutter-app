@@ -94,8 +94,7 @@ class _Edit extends State<Edit> {
                                                         controller:
                                                             controller[index],
                                                         text: Colors.black,
-                                                        index: index,
-                                                        fill: Colors.white)));
+                                                        index: index)));
                                           })),
                                 ]),
                               ))))

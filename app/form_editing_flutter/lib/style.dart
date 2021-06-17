@@ -30,16 +30,12 @@ class InputField extends StatelessWidget {
   final String hintText;
   final String enterData;
   final IconData icon;
-  final Color fill;
-  final Color text;
   final bool obscure;
   final TextEditingController controller;
   const InputField({
     required this.hintText,
     required this.icon,
     required this.enterData,
-    required this.fill,
-    required this.text,
     required this.obscure,
     required this.controller,
   });
@@ -58,23 +54,20 @@ class InputField extends StatelessWidget {
             },
             obscureText: this.obscure,
             controller: this.controller,
-            style: TextStyle(color: this.text, fontSize: 18),
+            style: TextStyle(fontSize: 18),
             decoration: InputDecoration(
                 hintText: hintText,
                 prefixIcon: Icon(this.icon),
-                fillColor: fill,
                 filled: true)));
   }
 }
 
 class DynamicInputField extends StatelessWidget {
-  final Color fill;
   final Color text;
   final TextEditingController controller;
 
   final int index;
   const DynamicInputField({
-    required this.fill,
     required this.text,
     required this.controller,
     required this.index,
@@ -102,7 +95,6 @@ class DynamicInputField extends StatelessWidget {
               }
             },
             decoration: InputDecoration(
-                fillColor: fill,
                 labelText: fieldsList[index].definition.isRequired == true
                     ? (Name(AppLocalizations.of(context)!.localeName,
                             fieldsList[index].name) +

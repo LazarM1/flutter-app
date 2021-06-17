@@ -17,9 +17,9 @@ class Home extends StatelessWidget {
           child: Center(
               child: Text(AppLocalizations.of(context)!.welcome.toUpperCase(),
                   style: TextStyle(
-                      fontSize: 45,
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromRGBO(51, 45, 45, 1)))),
+                    fontSize: 45,
+                    fontWeight: FontWeight.bold,
+                  ))),
         ),
         drawer: Theme(
           data: Theme.of(context).copyWith(

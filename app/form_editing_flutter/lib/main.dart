@@ -25,12 +25,32 @@ class MyApp extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
           ],
-          theme: ThemeData(
-            scaffoldBackgroundColor: const Color(0xfff1f2f2),
-            primarySwatch: Colors.blue,
-            accentColor: Colors.deepPurpleAccent,
-          ),
+          theme: CustomTheme.lightTheme,
           home: MyHomePage(),
         );
       });
+}
+
+class CustomTheme {
+  static ThemeData get lightTheme {
+    //1
+    return ThemeData(
+        //2
+        primaryColor: Color.fromRGBO(51, 45, 45, 1),
+        accentColor: Color.fromRGBO(51, 45, 45, 1),
+        scaffoldBackgroundColor: Color(0xfff1f2f2),
+        fontFamily: 'Montserrat', //3
+
+        inputDecorationTheme: InputDecorationTheme(fillColor: Colors.white));
+  }
+
+  static ThemeData get darkTheme {
+    return ThemeData(
+      primaryColor: Colors.white,
+      scaffoldBackgroundColor: Colors.black,
+      fontFamily: 'Montserrat',
+      textTheme: ThemeData.dark().textTheme,
+      inputDecorationTheme: InputDecorationTheme(fillColor: Colors.black87),
+    );
+  }
 }
