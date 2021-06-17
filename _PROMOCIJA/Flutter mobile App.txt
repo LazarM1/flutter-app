@@ -1,0 +1,26 @@
+Flutter mobile App
+
+Dinamičen prikaz in urejanje forme v Flutter aplikaciji, katerih namen je, da se podprejo različne potrebe uporabnikov ter hitro prilagajanje rešitve na potrebe trga.
+
+Leto izdelave: 2021
+
+Avtor 1 : Isidora Đoković
+Avtor 2 : Lazar Milosavljević
+Avtor 3 : Anja Jakovljević
+Avtor 4 : Marija Jakšić
+
+Vir podatkov: 
+https://youtu.be/ly0hAtV7EBg
+https://flutter.dev/
+https://www.youtube.com/watch?v=pTJJsmejUOQ
+https://www.youtube.com/watch?v=x0uinJvhNxI
+https://www.youtube.com/watch?v=1gDhl4leEzA
+
+Koda: https://github.com/LazarM1/flutter-app/tree/main/app/form_editing_flutter
+
+Kategorizacija: Mobilna aplikacija (Flutter mobile App).
+
+Oznake: Flutter, Dart, Android Studio Emulator, Visual Studio Code, Scrum, GitHub.
+
+Mobilna aplikacija služi za prijavo in pregled podatkov o uporabniku, ki pa se mora izrisati v mobilni aplikaciji dinamično, torej glede na nastavitve, ki so zabeležene v zalednem sistemu spletne aplikacije. Končni cilj mobilne aplikacije in te naloge je, da se ta prilagaja ad-hoc, torej brez posega razvoja, ampak izključno skozi parameterizacijo nastavitev v zalednem sistemu.  
+Upoštevamo validacijo podatkov, ki so sestavni nastavitev dinamičnih form v zalednem sistemu, prilagajanje forme je izvedena z Flutter UI vmesnikom in ne kot embeded webview zaledne spletne aplikacije. Aplikacija ima tudi možnost lokalizacije (dvojezična aplikacija) in možnost spreminjanja tem - dark/white.
