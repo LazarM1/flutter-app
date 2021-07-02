@@ -20,56 +20,58 @@ class _MyHomePageState extends State<MyHomePage> {
         constraints: BoxConstraints.expand(),
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/background.jpg'),
+            image: AssetImage('assets/images/background.png'),
             fit: BoxFit.cover,
           ),
         ),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                'assets/images/logo.png',
-                height: 200,
-              ),
-              SizedBox(
-                height: 25,
-              ),
-              SizedBox(
-                  width: 250,
-                  child: OutlinedButton(
-                      style: outline_button,
-                      onPressed: () {
-                        Future.delayed(Duration.zero, () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => LogInScreen()));
-                        });
-                      },
-                      child: Text(
-                          AppLocalizations.of(context)!.signIn.toUpperCase()))),
-              SizedBox(
-                height: 25,
-              ),
-              SizedBox(
-                  width: 250,
-                  child: OutlinedButton(
-                      style: outline_button,
-                      onPressed: () {
-                        Future.delayed(Duration.zero, () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Register()));
-                        });
-                      },
-                      child: Text(AppLocalizations.of(context)!
-                          .register
-                          .toUpperCase()))),
-            ],
-          ),
-        ),
+        child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(AppLocalizations.of(context)!.welcome.toUpperCase(),
+                    style: TextStyle(
+                        fontSize: 45,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white)),
+                SizedBox(
+                  height: 50,
+                ),
+                SizedBox(
+                    width: 250,
+                    child: OutlinedButton(
+                        style: outline_button,
+                        onPressed: () {
+                          Future.delayed(Duration.zero, () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LogInScreen()));
+                          });
+                        },
+                        child: Text(AppLocalizations.of(context)!
+                            .signIn
+                            .toUpperCase()))),
+                SizedBox(
+                  height: 25,
+                ),
+                SizedBox(
+                    width: 250,
+                    child: OutlinedButton(
+                        style: outline_button,
+                        onPressed: () {
+                          Future.delayed(Duration.zero, () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Register()));
+                          });
+                        },
+                        child: Text(AppLocalizations.of(context)!
+                            .register
+                            .toUpperCase()))),
+              ],
+            )),
       ),
     );
   }

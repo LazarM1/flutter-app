@@ -63,6 +63,7 @@ class InputField extends StatelessWidget {
   }
 }
 
+//klasa za formu, polja sa regexom, enabled, required, controller
 class DynamicInputField extends StatelessWidget {
   final Color text;
   final TextEditingController controller;
